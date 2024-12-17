@@ -1,0 +1,14 @@
+services:
+  cloudflare-ip-updater:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cloudflare-ip-updater
+    restart: unless-stopped
+    env_file:
+      - .env
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
